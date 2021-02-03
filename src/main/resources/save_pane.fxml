@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="500.0" prefWidth="234.0" spacing="30.0" style="-fx-background-color: F0F7FF;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Save_Controller">
+   <children>
+      <Label text="Gamestate File Name:">
+         <font>
+            <Font size="18.0" />
+         </font>
+         <VBox.margin>
+            <Insets left="25.0" top="15.0" />
+         </VBox.margin>
+      </Label>
+      <TextField fx:id="save_file_textfield" prefHeight="30.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+         <VBox.margin>
+            <Insets left="25.0" right="25.0" />
+         </VBox.margin>
+      </TextField>
+      <JFXButton fx:id="save_file_button" onMouseClicked="#save" prefHeight="39.0" prefWidth="237.0" text="Save">
+         <font>
+            <Font size="18.0" />
+         </font>
+         <VBox.margin>
+            <Insets left="25.0" right="25.0" />
+         </VBox.margin>
+      </JFXButton>
+      <Label prefHeight="27.0" prefWidth="222.0" text="Rule File Name:">
+         <font>
+            <Font size="18.0" />
+         </font>
+         <VBox.margin>
+            <Insets left="25.0" right="25.0" top="50.0" />
+         </VBox.margin>
+      </Label>
+      <TextField fx:id="rule_save_textfield" prefHeight="30.0">
+         <VBox.margin>
+            <Insets left="25.0" right="25.0" />
+         </VBox.margin>
+      </TextField>
+      <JFXButton fx:id="rule_save_button" onMouseClicked="#save_rules" prefHeight="26.0" prefWidth="244.0" text="Save">
+         <VBox.margin>
+            <Insets left="25.0" right="25.0" />
+         </VBox.margin>
+         <font>
+            <Font size="18.0" />
+         </font>
+      </JFXButton>
+   </children>
+   <effect>
+      <DropShadow />
+   </effect>
+</VBox>

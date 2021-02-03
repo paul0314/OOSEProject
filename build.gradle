@@ -1,0 +1,20 @@
+plugins {
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.0.8'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies{
+    implementation 'com.google.code.gson:gson:2.8.0'
+    implementation 'com.jfoenix:jfoenix:9.0.8'
+}
+
+javafx {
+    version = "11"
+    modules = [ 'javafx.controls' , "javafx.fxml"]
+}
+
+mainClassName = 'conway_fixed_fxml'

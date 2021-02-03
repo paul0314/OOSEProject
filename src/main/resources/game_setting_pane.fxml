@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox fx:id="vbox_game_setting_pane" prefHeight="500.0" prefWidth="234.0" style="-fx-background-color: #F0F7FF;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Game_Setting_Controller">
+   <children>
+      <JFXButton fx:id="clear_button" alignment="BASELINE_LEFT" onMouseClicked="#clear" prefHeight="45.0" prefWidth="235.0" text="Clear">
+         <font>
+            <Font size="18.0" />
+         </font>
+         <padding>
+            <Insets left="25.0" />
+         </padding>
+      </JFXButton>
+      <JFXButton fx:id="reset_button" alignment="BASELINE_LEFT" onMouseClicked="#reset" prefHeight="45.0" prefWidth="235.0" text="Random">
+         <font>
+            <Font size="18.0" />
+         </font>
+         <padding>
+            <Insets left="25.0" />
+         </padding>
+      </JFXButton>
+      <JFXButton fx:id="step_button" alignment="BASELINE_LEFT" onMouseClicked="#step" prefHeight="45.0" prefWidth="235.0" text="Step">
+         <font>
+            <Font size="18.0" />
+         </font>
+         <padding>
+            <Insets left="25.0" />
+         </padding>
+      </JFXButton>
+      <JFXButton fx:id="run_button" alignment="BASELINE_LEFT" onMouseClicked="#run" prefHeight="45.0" prefWidth="235.0" text="Run">
+         <font>
+            <Font size="18.0" />
+         </font>
+         <padding>
+            <Insets left="25.0" />
+         </padding>
+      </JFXButton>
+      <HBox prefHeight="45.0" prefWidth="234.0">
+         <children>
+            <Label prefHeight="45.0" text="Reverse: ">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="25.0" />
+               </HBox.margin>
+            </Label>
+            <JFXButton fx:id="reverse_button" onMouseClicked="#reverse" prefHeight="45.0" prefWidth="70.0" text="Cells">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+               <padding>
+                  <Insets left="15.0" />
+               </padding>
+            </JFXButton>
+            <JFXButton fx:id="reverse_rules_button" onMouseClicked="#reverse_rules" prefHeight="45.0" prefWidth="70.0" text="Rules">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </HBox>
+      <JFXButton fx:id="stop_button" alignment="BASELINE_LEFT" onMouseClicked="#stop" prefHeight="45.0" prefWidth="235.0" text="Stop">
+         <font>
+            <Font size="18.0" />
+         </font>
+         <padding>
+            <Insets left="25.0" />
+         </padding>
+      </JFXButton>
+      <JFXButton fx:id="add_delete_button" alignment="BASELINE_LEFT" onMouseClicked="#add_delete" prefHeight="45.0" prefWidth="235.0" text="Add">
+         <font>
+            <Font size="18.0" />
+         </font>
+         <padding>
+            <Insets left="25.0" />
+         </padding>
+      </JFXButton>
+      <HBox prefHeight="45.0" prefWidth="235.0">
+         <children>
+            <Label prefHeight="45.0" text="Zoom: ">
+               <HBox.margin>
+                  <Insets left="25.0" />
+               </HBox.margin>
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <JFXButton fx:id="zoom_in_button" alignment="BASELINE_LEFT" onMouseClicked="#zoom_in" prefHeight="45.0" prefWidth="50.0" text="+">
+               <font>
+                  <Font size="20.0" />
+               </font>
+               <padding>
+                  <Insets left="25.0" />
+               </padding>
+            </JFXButton>
+            <JFXButton fx:id="zoom_out_button" alignment="BASELINE_LEFT" onMouseClicked="#zoom_out" prefHeight="45.0" prefWidth="50.0" text="-">
+               <font>
+                  <Font size="28.0" />
+               </font>
+               <padding>
+                  <Insets left="25.0" />
+               </padding>
+            </JFXButton>
+         </children>
+      </HBox>
+      <Label text="Speed:">
+         <VBox.margin>
+            <Insets left="25.0" top="5.0" />
+         </VBox.margin>
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <HBox prefHeight="40.0" prefWidth="234.0">
+         <children>
+            <Slider fx:id="slider_speed" majorTickUnit="100.0" max="950.0" min="50.0" onMouseClicked="#slide" onMouseDragged="#slide" prefHeight="33.0" prefWidth="140.0" showTickLabels="true" showTickMarks="true" value="250.0" />
+            <Label fx:id="infoLabel_speed" text="Step alle 250ms" />
+         </children>
+         <VBox.margin>
+            <Insets top="15.0" />
+         </VBox.margin>
+      </HBox>
+      <Label fx:id="generation_count" text="Generation: 0">
+         <font>
+            <Font size="18.0" />
+         </font>
+         <VBox.margin>
+            <Insets left="25.0" />
+         </VBox.margin>
+      </Label>
+   </children>
+   <opaqueInsets>
+      <Insets />
+   </opaqueInsets>
+   <effect>
+      <DropShadow />
+   </effect>
+   <padding>
+      <Insets top="6.0" />
+   </padding>
+</VBox>

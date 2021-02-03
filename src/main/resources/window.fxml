@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Window_Controller">
+   <left>
+      <BorderPane fx:id="borderpane" prefHeight="500.0" prefWidth="259.0" style="-fx-background-color: #F0F7FF;" BorderPane.alignment="CENTER">
+         <left>
+            <VBox style="-fx-background-color: #fff;" BorderPane.alignment="CENTER">
+               <children>
+                  <JFXButton fx:id="game_setting_button" onMouseClicked="#game_ui" text="Game" />
+                  <JFXButton fx:id="setting_button" onMouseClicked="#setting_ui" text="Settings" />
+                  <JFXButton fx:id="save_setting_button" onMouseClicked="#save_ui" text="Save" />
+                  <JFXButton fx:id="load_setting_button" onMouseClicked="#load_ui" text="Load" />
+                  <JFXButton fx:id="close_button" onMouseClicked="#close" text="Close" />
+               </children>
+            </VBox>
+         </left>
+         <effect>
+            <DropShadow />
+         </effect>
+         <right>
+            <VBox fx:id="empty_vbox" prefHeight="500.0" prefWidth="234.0" BorderPane.alignment="CENTER" />
+         </right>
+      </BorderPane>
+   </left>
+   <right>
+      <Canvas fx:id="canvas" height="500.0" onMouseDragged="#canvas_mouse_dragged" onMousePressed="#canvas_mouse_pressed" width="500.0" BorderPane.alignment="CENTER" />
+   </right>
+</BorderPane>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="500.0" prefWidth="234.0" spacing="15.0" style="-fx-background-color: #F0F7FF;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Setting_Controller">
+   <children>
+      <Label text="Rule Set:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <HBox prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <VBox prefHeight="200.0" prefWidth="100.0" spacing="7.0">
+               <children>
+                  <Label text="Born">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </Label>
+                  <JFXRadioButton fx:id="s0" text="0" />
+                  <JFXRadioButton fx:id="s1" text="1" />
+                  <JFXRadioButton fx:id="s2" text="2" />
+                  <JFXRadioButton fx:id="s3" text="3" />
+                  <JFXRadioButton fx:id="s4" text="4" />
+                  <JFXRadioButton fx:id="s5" text="5" />
+                  <JFXRadioButton fx:id="s6" text="6" />
+                  <JFXRadioButton fx:id="s7" text="7" />
+                  <JFXRadioButton fx:id="s8" text="8" />
+               </children>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="100.0" spacing="7.0">
+               <children>
+                  <Label text="Survives">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </Label>
+                  <JFXRadioButton fx:id="b0" text="0" />
+                  <JFXRadioButton fx:id="b1" text="1" />
+                  <JFXRadioButton fx:id="b2" text="2" />
+                  <JFXRadioButton fx:id="b3" text="3" />
+                  <JFXRadioButton fx:id="b4" text="4" />
+                  <JFXRadioButton fx:id="b5" text="5" />
+                  <JFXRadioButton fx:id="b6" text="6" />
+                  <JFXRadioButton fx:id="b7" text="7" />
+                  <JFXRadioButton fx:id="b8" text="8" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <JFXButton fx:id="confirm_rules_button" onMouseClicked="#confirm_rules" text="Confirm Set of Rules">
+         <font>
+            <Font size="14.0" />
+         </font>
+         <VBox.margin>
+            <Insets top="10.0" />
+         </VBox.margin>
+      </JFXButton>
+      <Label text="Color:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="color_combobox" prefWidth="150.0" />
+   </children>
+   <padding>
+      <Insets left="25.0" top="15.0" />
+   </padding>
+   <effect>
+      <DropShadow />
+   </effect>
+</VBox>

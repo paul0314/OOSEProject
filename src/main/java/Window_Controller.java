@@ -63,7 +63,7 @@ public class Window_Controller implements Initializable {
     public double cellsize = 10;
     public int reihe = 50;
     public int zeile = 50;
-    private SimpleIntegerProperty generation = new SimpleIntegerProperty(0);
+    private final SimpleIntegerProperty generation = new SimpleIntegerProperty(0);
     //2x9 Feld
     public boolean[][] rules;
     private boolean[][] standard_rules;
@@ -115,7 +115,12 @@ public class Window_Controller implements Initializable {
         for (int i = 0; i < reihe; i++) {
             for (int j = 0; j < zeile; j++) {
                 grid[i][j] = random.nextInt(2);
-                grid_lifetime[i][j] = 0;
+                if(grid[i][j] == 1){
+                    grid_lifetime[i][j] = 1;
+                }
+                else{
+                    grid_lifetime[i][j] = 0;
+                }
             }
         }
         generation.set(0);
@@ -186,13 +191,13 @@ public class Window_Controller implements Initializable {
     /*Aktuellen Zustand abspeichern in Json-Datei im angegebenen Pfad*/
     public void save() throws IOException {
         /*Default-Path*/
-        Path pfad = Paths.get("C:\\Users\\User\\IdeaProjects\\conway_fixed_fxml\\Lifetime\\default.json");
+        Path pfad = Paths.get("D:\\Uni_sec_sem\\OOSE\\OOSEProject\\conway_fixed_fxml\\Lifetime\\default.json");
         /*Speicherstruktur für das Feld*/
         JsonArray to_save = new JsonArray();
         /*Falls ein Dateiname angegeben wurde, wird dieser statt Default genutzt.*/
         if (save_name != null) {
             /*Zusammenbauen des Path-Strings*/
-            String base_path = "C:\\Users\\User\\IdeaProjects\\conway_fixed_fxml\\Lifetime\\";
+            String base_path = "D:\\Uni_sec_sem\\OOSE\\OOSEProject\\conway_fixed_fxml\\Lifetime\\";
             String path_string = base_path +
                     save_name +
                     ".json";
@@ -220,12 +225,7 @@ public class Window_Controller implements Initializable {
     public void reverse_rules(){
         for(int i = 0; i < rules.length; i++){
             for(int j = 0; j < rules[0].length; j++){
-                if(rules[i][j]){
-                    rules[i][j] = false;
-                }
-                else{
-                    rules[i][j] = true;
-                }
+                rules[i][j] = !rules[i][j];
             }
         }
         setting_controller.set_selected();
@@ -239,7 +239,7 @@ public class Window_Controller implements Initializable {
         int[][] saved_grid;
         /*Falls ein Dateiname angegeben wurde, wird dieser genutzt.*/
         if (load_name != null) {
-            String base_path = "C:\\Users\\User\\IdeaProjects\\conway_fixed_fxml\\Lifetime\\";
+            String base_path = "D:\\Uni_sec_sem\\OOSE\\OOSEProject\\conway_fixed_fxml\\Lifetime\\";
             String path_string = base_path +
                     load_name +
                     ".json";
@@ -276,13 +276,13 @@ public class Window_Controller implements Initializable {
     /*Aktuellen Zustand abspeichern in Json-Datei im angegebenen Pfad*/
     public void save_rules() throws IOException {
         /*Default-Path*/
-        Path pfad = Paths.get("C:\\Users\\User\\IdeaProjects\\conway_fixed_fxml\\Rules\\default.json");
+        Path pfad = Paths.get("D:\\Uni_sec_sem\\OOSE\\OOSEProject\\conway_fixed_fxml\\Rules\\default.json");
         /*Speicherstruktur für das Feld*/
         JsonArray to_save = new JsonArray();
         /*Falls ein Dateiname angegeben wurde, wird dieser statt Default genutzt.*/
         if (save_rules_name != null) {
             /*Zusammenbauen des Path-Strings*/
-            String base_path = "C:\\Users\\User\\IdeaProjects\\conway_fixed_fxml\\Rules\\";
+            String base_path = "D:\\Uni_sec_sem\\OOSE\\OOSEProject\\conway_fixed_fxml\\Rules\\";
             String path_string = base_path +
                     save_rules_name +
                     ".json";
@@ -312,7 +312,7 @@ public class Window_Controller implements Initializable {
         boolean[][] saved_rules;
         /*Falls ein Dateiname angegeben wurde, wird dieser genutzt.*/
         if (load_rules_name != null) {
-            String base_path = "C:\\Users\\User\\IdeaProjects\\conway_fixed_fxml\\Rules\\";
+            String base_path = "D:\\Uni_sec_sem\\OOSE\\OOSEProject\\conway_fixed_fxml\\Rules\\";
             String path_string = base_path +
                     load_rules_name +
                     ".json";
@@ -353,24 +353,24 @@ public class Window_Controller implements Initializable {
     }
 
     //UI auswählen und auf die rechte Seite des Borderpanes einfügen
-    public void setting_ui(MouseEvent mouseEvent) {
+    public void setting_ui() {
         borderpane.setRight(setting_settings);
     }
 
-    public void save_ui(MouseEvent mouseEvent) {
+    public void save_ui() {
         borderpane.setRight(save_settings);
     }
 
-    public void load_ui(MouseEvent mouseEvent) {
+    public void load_ui() {
         borderpane.setRight(load_settings);
     }
 
-    public void game_ui(MouseEvent mouseEvent) {
+    public void game_ui() {
         borderpane.setRight(game_settings);
     }
 
     //Funktion, die der Close-Button zum Schließen nutzt
-    public void close(MouseEvent mouseEvent) {
+    public void close() {
         Stage stage = (Stage) close_button.getScene().getWindow();
         stage.close();
     }
@@ -429,7 +429,12 @@ public class Window_Controller implements Initializable {
             if (event.isPrimaryButtonDown()) {
                 if(grid[i][j] != add_delete){
                     grid[i][j] = add_delete;
-                    grid_lifetime[i][j] = 0;
+                    if(grid[i][j] == 1){
+                        grid_lifetime[i][j] = 1;
+                    }
+                    else{
+                        grid_lifetime[i][j] = 0;
+                    }
                     draw(graphics);
                 }
             }
@@ -440,7 +445,7 @@ public class Window_Controller implements Initializable {
             }
         }
         catch (Exception e){
-
+            e.printStackTrace();
         }
 
     }
@@ -464,7 +469,12 @@ public class Window_Controller implements Initializable {
             if(event.isPrimaryButtonDown()){
                 if(grid[i][j] != add_delete){
                     grid[i][j] = add_delete;
-                    grid_lifetime[i][j] = 0;
+                    if(grid[i][j] == 1){
+                        grid_lifetime[i][j] = 1;
+                    }
+                    else{
+                        grid_lifetime[i][j] = 0;
+                    }
                     draw(graphics);
                 }
             }
@@ -511,7 +521,7 @@ public class Window_Controller implements Initializable {
             }
         }
         catch (Exception e){
-
+            e.printStackTrace();
         }
 
     }
@@ -606,62 +616,46 @@ public class Window_Controller implements Initializable {
 
         //Simulationsgeschwindigkeit setzen und Listener hinzufügen
         sliderspeed = 250.0;
-        game_setting_controller.speedProperty().addListener(((observable, oldValue, newValue) -> {
-            sliderspeed = newValue.doubleValue();
-        }));
+        game_setting_controller.speedProperty().addListener(((observable, oldValue, newValue) -> sliderspeed = newValue.doubleValue()));
 
         //Add_delete gibt an, ob man mit linker Maustaste löscht oder belebt
         //Initialisierung und hinzufügen eines Listeners
         add_delete = 1;
-        game_setting_controller.add_delete_Property().addListener(((observable, oldValue, newValue) -> {
-            add_delete = newValue.intValue();
-        }));
+        game_setting_controller.add_delete_Property().addListener(((observable, oldValue, newValue) -> add_delete = newValue.intValue()));
 
         //Pfad unter dem gespeichert wird, wird durch save_name definiert
         //Initialisierung und hinzufügen eines Listeners
         save_name = "default";
-        save_controller.save_name_Property().addListener(((observable, oldValue, newValue) -> {
-            save_name = newValue;
-        }));
+        save_controller.save_name_Property().addListener(((observable, oldValue, newValue) -> save_name = newValue));
 
         //Pfad unter dem gespeichert wird, wird durch save_rules_name definiert
         //Initialisierung und hinzufügen eines Listeners
         save_rules_name = "default";
-        save_controller.save_rule_name_Property().addListener(((observable, oldValue, newValue) -> {
-            save_rules_name = newValue;
-        }));
+        save_controller.save_rule_name_Property().addListener(((observable, oldValue, newValue) -> save_rules_name = newValue));
 
         //Pfad aus dem geladen wird, wird durch load_name definiert
         //Initialisierung und hinzufügen eines Listeners
         load_name = "default";
-        load_controller.load_name_Property().addListener(((observable, oldValue, newValue) -> {
-            load_name = newValue;
-        }));
+        load_controller.load_name_Property().addListener(((observable, oldValue, newValue) -> load_name = newValue));
 
         //Pfad aus dem geladen wird, wird durch load_rules_name definiert
         //Initialisierung und hinzufügen eines Listeners
         load_rules_name = "default";
-        load_controller.load_rules_name_Property().addListener(((observable, oldValue, newValue) -> {
-            load_rules_name = newValue;
-        }));
+        load_controller.load_rules_name_Property().addListener(((observable, oldValue, newValue) -> load_rules_name = newValue));
 
         //Ordner erstellen, falls nicht vorhanden
-        new File("C:\\Users\\User\\IdeaProjects\\conway_fixed_fxml\\Rules").mkdirs();
-        new File("C:\\Users\\User\\IdeaProjects\\conway_fixed_fxml\\Lifetime\\").mkdirs();
+        new File("D:\\Uni_sec_sem\\OOSE\\OOSEProject\\conway_fixed_fxml\\Rules").mkdirs();
+        new File("D:\\Uni_sec_sem\\OOSE\\OOSEProject\\conway_fixed_fxml\\Lifetime\\").mkdirs();
 
         //Mögliche Farboptionen der ComboBox hinzufügen und Listener hinzufügen
         setting_controller.color_combobox.getItems().clear();
         setting_controller.color_combobox.getItems().addAll("Red","Blue","Green","Purple");
         setting_controller.color_combobox.getSelectionModel().select("Red");
-        setting_controller.color_combobox.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-            get_color_theme(newValue);
-        });
+        setting_controller.color_combobox.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> get_color_theme(newValue));
 
         //Generationszähler
         generation.set(0);
-        generation.addListener((observable, oldValue, newValue) -> {
-            game_setting_controller.generation_count.setText("Generation: " + generation.getValue());
-        });
+        generation.addListener((observable, oldValue, newValue) -> game_setting_controller.generation_count.setText("Generation: " + generation.getValue()));
 
         //Animation definieren, entsprechend der durch den Slider definierten Geschwindigkeit wird aktualisiert
         animation = new AnimationTimer() {
